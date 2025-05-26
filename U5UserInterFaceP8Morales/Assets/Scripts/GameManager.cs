@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator SpawnTarget()
-    {
-        while(isGameActive)
         {
-            yield return new WaitForSeconds(spawnRate);
-            int index = Random.Range(0, targets.Count);
-            Instantiate(targets[index]);
+            while(isGameActive)
+            {
+                yield return new WaitForSeconds(spawnRate);
+                int index =  Random.Range(0, targets.Count);
+                Instantiate(targets[index]);
+            }
         }
-    }
 
     //updates score
     public void UpdateScore(int scoreToAdd)
