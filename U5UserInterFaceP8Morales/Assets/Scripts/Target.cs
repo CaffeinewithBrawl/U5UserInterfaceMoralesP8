@@ -36,10 +36,15 @@ public class Target : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        //to get points with destroying objects
-        gameManager.UpdateScore(pointValue);
+        // the if game manager makes sure that only when the game is active can the player click
+        if(gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            //to get points with destroying objects
+            gameManager.UpdateScore(pointValue);
+        }
+       
     }
 
     private void OnTriggerEnter(Collider other)

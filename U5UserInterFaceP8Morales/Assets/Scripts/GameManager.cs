@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,13 +17,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGameActive = true;
+        score = 0;
         // Spawns eight ball, skull, etc. 
         StartCoroutine(SpawnTarget());
         //To start score
-        score = 0;
         UpdateScore(0);
 
-        isGameActive = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,5 +52,10 @@ public class GameManager : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         isGameActive = false; 
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
