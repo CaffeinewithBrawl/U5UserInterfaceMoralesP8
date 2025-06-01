@@ -36,7 +36,7 @@ public class Target : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        // the if game manager makes sure that only when the game is active can the player click
+        // the "if game manager" makes sure that only when the game is active can the player click
         if(gameManager.isGameActive)
         {
             Destroy(gameObject);
